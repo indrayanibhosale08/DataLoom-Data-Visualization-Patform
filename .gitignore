@@ -1,0 +1,16 @@
+# Dependencies
+/node_modules
+/client/frontend/node_modules
+
+# Environment Variables - DO NOT UPLOAD SECRETS
+.env
+/server/.env
+/client/frontend/.env
+
+# Build folder
+/client/frontend/dist
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
