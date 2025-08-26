@@ -27,30 +27,30 @@ app.use('/api/admin', require('./routes/adminRoutes'));
 
 app.use('/api/ai', require('./routes/aiRoutes'));
 
-// server/server.js
+// // server/server.js
 
-// ... (all your existing code, middleware, and API routes like app.use('/api/...'))
+// // ... (all your existing code, middleware, and API routes like app.use('/api/...'))
 
-// ==============================================================
-// --- SERVE FRONTEND IN PRODUCTION ---
-// This section must be AFTER all your API routes
-if (process.env.NODE_ENV === 'production') {
-  // Define the path to the built frontend files.
-  // This path navigates up one directory from 'server', then into 'client/frontend/dist'.
-  const frontendDistPath = path.resolve(__dirname, '../client/frontend/dist');
+// // ==============================================================
+// // --- SERVE FRONTEND IN PRODUCTION ---
+// // This section must be AFTER all your API routes
+// if (process.env.NODE_ENV === 'production') {
+//   // Define the path to the built frontend files.
+//   // This path navigates up one directory from 'server', then into 'client/frontend/dist'.
+//   const frontendDistPath = path.resolve(__dirname, '../client/frontend/dist');
 
-  // Instruct Express to serve static files from this directory.
-  app.use(express.static(frontendDistPath));
+//   // Instruct Express to serve static files from this directory.
+//   app.use(express.static(frontendDistPath));
 
-  // For any request that doesn't match an API route above,
-  // send back the main index.html file from the React app.
-  // This is crucial for React Router to work on a live server.
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendDistPath, 'index.html'));
-  });
-}
-// --- END ---
-// ==============================================================
+//   // For any request that doesn't match an API route above,
+//   // send back the main index.html file from the React app.
+//   // This is crucial for React Router to work on a live server.
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(frontendDistPath, 'index.html'));
+//   });
+// }
+// // --- END ---
+// // ==============================================================
 
 app.get('/', (req, res) => {
   res.send('Excel Analytics Platform API is running!');
